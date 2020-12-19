@@ -13,16 +13,28 @@
             */
 
     function spinnyButton(link, animationTime = 1, revolutions = 1) {
-        console.log(link.tagName)
         if (link.tagName === 'A') {   
             const href = link.href
-            console.log(href)
 
             link.href = ''
 
             link.addEventListener('click', (e)=> {
                 const copyLink = link.cloneNode(true)
                 copyLink.style.pointerEvents = 'none'
+                link.style.pointerEvents = 'none'
+                link.style.opacity = 0
+                copyLink.style.position = 'fixed'
+
+                const body = document.querySelector('body')
+                const bodyPaddingTop = parseFloat(window.getComputedStyle(body, null).paddingTop)
+                const bodyPaddingLeft = parseFloat(window.getComputedStyle(body, null).paddingLeft)
+                const bodyMarginTop = parseFloat(window.getComputedStyle(body, null).marginTop)
+                const bodyMarginLeft = parseFloat(window.getComputedStyle(body, null).marginLeft)
+
+                copyLink.style.top = `${link.getBoundingClientRect().top - (bodyPaddingTop + bodyMarginTop)}px`
+                copyLink.style.left = `${link.getBoundingClientRect().left - (bodyPaddingLeft + bodyMarginLeft)}px`
+                console.log(copyLink.style.top, copyLink.style.left)
+                copyLink.style.background = 'blue'
                 document.querySelector('body').appendChild(copyLink)
                 e.preventDefault()
             })
