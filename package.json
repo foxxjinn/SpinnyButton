@@ -1,0 +1,11 @@
+{
+  "name": "spinnybutton",
+  "version": "1.0.0",
+  "description": "module for jumping to a new page via spinny button animation",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jinn Foxx",
+  "license": "MIT"
+}
