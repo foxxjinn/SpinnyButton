@@ -2,11 +2,34 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+<style>
+    a {
+        background: red;
+        color: white;
+        width: 100px;
+        border-radius: 10px;
+        display: block;
+        text-align: center;
+        padding: 1rem;
+        margin: 0.5rem;
+    }
+
+    div {
+        /* padding: 5rem; */
+    }
+</style>
 <body>
-    <a href=#>Hi</a>
-    <script src="../source/spinnyButton.js"></script>
+    <div class="center">
+        <a href=#>Hi</a>
+    </div>
+    
 </body>
+<script type="text/javascript" src="../source/spinnyButton.js"></script>
+<script>
+    const aLink = document.querySelector('a')
+    spinnyButton(aLink, 100, 2)
+</script>
 </html>
