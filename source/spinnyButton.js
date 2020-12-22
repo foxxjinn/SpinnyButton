@@ -1,7 +1,7 @@
 ;(function(){
     
     let currentTimeSec = 0
-    let href = ''
+    let href
     let blankLink
     let copyLink
     let buttonTopLeft
@@ -9,9 +9,8 @@
     let animationTimeSec
     let revolutions
     let buttonSize
-    let viewSize
     let maxScale
-    let color
+    let linkColor
 
 
     const body = document.querySelector('body')
@@ -26,7 +25,7 @@
         if (link.tagName === 'A') {                   
 
             href = link.href
-            href = ''
+            link.href = ''
 
             animationTimeSec = seconds
             revolutions = numRevolutions
@@ -126,13 +125,17 @@
             `
 
             copyLink.style.backgroundColor = blankLink.style.backgroundColor =
-                `rgb(${lerp(linkColor.backgroundR, 255, factor)}, ${lerp(linkColor.backgroundG, 255, factor)}, ${lerp(linkColor.backgroundB, 255, factor)})`
+                `rgb(${lerp(linkColor.backgroundR, 0, factor)}, ${lerp(linkColor.backgroundG, 0, factor)}, ${lerp(linkColor.backgroundB, 0, factor)})`
+
+            copyLink.style.color = blankLink.style.color =
+                `rgb(${lerp(linkColor.textR, 0, factor)}, ${lerp(linkColor.textG, 0, factor)}, ${lerp(linkColor.textB, 0, factor)})`
          
             copyLink.style.opacity = lerp(1, 0, factor)
             
             requestAnimationFrame(animate)
         } else {
-            // load hyperlink
+            console.log('hi ' + href)
+            window.location.href = href
         }
     }
 
