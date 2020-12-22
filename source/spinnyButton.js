@@ -73,8 +73,6 @@
                     maxScale = (window.innerHeight / buttonSize.height) * 1.1
                 }
 
-                let findNumber = /^[1-9][0-9]*$/
-
                 // returns 'rbg(###, ###, ###)' slice to get '###, ###, ###' ; split to get [###, ###, ###]
                 let backgroundRGB = getComputedStyle(link, null).backgroundColor.slice(4,-1).split(',')
                 let textRGB = getComputedStyle(link, null).color.slice(4, -1).split(',')
@@ -96,8 +94,6 @@
             throw new TypeError('SpinnyButton only accepts HTML link')
         }
     }
-
-    
 
     function animate() {
         if (currentTimeSec <= animationTimeSec) {
@@ -141,10 +137,6 @@
 
     function lerp(initial, final, factor) {
         return initial + (final - initial) * factor
-    }
-
-    function getRGB(color) {
-
     }
 
     // Export spinnyButton Function
